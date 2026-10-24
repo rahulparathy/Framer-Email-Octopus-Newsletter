@@ -2,7 +2,7 @@ import { useState } from "react"
 import { addPropertyControls, ControlType } from "framer"
 
 // Set this to your deployed proxy URL, e.g. https://your-project.vercel.app/api/subscribe
-const SUBSCRIBE_URL = "https://YOUR-PROXY.vercel.app/api/subscribe"
+const SUBSCRIBE_URL = "https://framer-email-octopus-newsletter-cod.vercel.app/api/subscribe"
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
@@ -12,10 +12,13 @@ export default function NewsletterForm(props) {
         placeholder,
         successMessage,
         errorMessage,
-        background,
         textColor,
-        accentColor,
+        inputBackground,
+        inputBorder,
+        buttonBackground,
+        buttonTextColor,
         borderRadius,
+        height,
         font,
     } = props
 
@@ -67,18 +70,16 @@ export default function NewsletterForm(props) {
             style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: 10,
+                gap: 12,
                 width: "100%",
+                boxSizing: "border-box",
                 fontFamily: font?.fontFamily,
                 fontSize: font?.fontSize,
                 fontWeight: font?.fontWeight,
                 color: textColor,
-                background,
-                padding: 16,
-                boxSizing: "border-box",
             }}
         >
-            <div style={{ display: "flex", gap: 8, width: "100%" }}>
+            <div style={{ display: "flex", gap: 10, width: "100%" }}>
                 <input
                     type="email"
                     value={email}
@@ -90,29 +91,33 @@ export default function NewsletterForm(props) {
                     style={{
                         flex: 1,
                         minWidth: 0,
-                        padding: "12px 14px",
-                        border: `1px solid ${textColor}33`,
+                        height,
+                        padding: "0 18px",
+                        border: `1px solid ${inputBorder}`,
                         borderRadius,
-                        background: "transparent",
+                        background: inputBackground,
                         color: textColor,
                         font: "inherit",
                         outline: "none",
+                        boxSizing: "border-box",
                     }}
                 />
                 <button
                     type="submit"
                     disabled={disabled}
                     style={{
-                        padding: "12px 18px",
+                        height,
+                        padding: "0 28px",
                         border: "none",
                         borderRadius,
-                        background: accentColor,
-                        color: background,
+                        background: buttonBackground,
+                        color: buttonTextColor,
                         font: "inherit",
-                        fontWeight: 600,
+                        fontWeight: 700,
                         cursor: disabled ? "default" : "pointer",
                         opacity: disabled ? 0.7 : 1,
                         whiteSpace: "nowrap",
+                        boxSizing: "border-box",
                     }}
                 >
                     {status === "loading" ? "Subscribing..." : buttonText}
@@ -126,7 +131,7 @@ export default function NewsletterForm(props) {
                     style={{
                         margin: 0,
                         fontSize: "0.9em",
-                        color: status === "error" ? "#d93025" : textColor,
+                        color: status === "error" ? "#ff6b6b" : textColor,
                     }}
                 >
                     {message}
@@ -147,9 +152,12 @@ addPropertyControls(NewsletterForm, {
         type: ControlType.String,
         defaultValue: "Something went wrong. Please try again.",
     },
-    background: { type: ControlType.Color, defaultValue: "#ffffff" },
-    textColor: { type: ControlType.Color, defaultValue: "#111111" },
-    accentColor: { type: ControlType.Color, defaultValue: "#111111" },
-    borderRadius: { type: ControlType.String, defaultValue: "8px" },
+    textColor: { type: ControlType.Color, defaultValue: "#ffffff" },
+    inputBackground: { type: ControlType.Color, defaultValue: "#141414" },
+    inputBorder: { type: ControlType.Color, defaultValue: "#262626" },
+    buttonBackground: { type: ControlType.Color, defaultValue: "#f8f9fa" },
+    buttonTextColor: { type: ControlType.Color, defaultValue: "#000000" },
+    borderRadius: { type: ControlType.String, defaultValue: "12px" },
+    height: { type: ControlType.String, defaultValue: "56px" },
     font: { type: ControlType.Font, defaultValue: { fontSize: 16 } },
 })
