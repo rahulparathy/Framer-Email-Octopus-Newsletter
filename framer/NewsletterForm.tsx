@@ -2,7 +2,7 @@ import { useState } from "react"
 import { addPropertyControls, ControlType } from "framer"
 
 // Set this to your deployed proxy URL, e.g. https://your-project.vercel.app/api/subscribe
-const SUBSCRIBE_URL = "https://framer-email-octopus-newsletter-cod.vercel.app/api/subscribe"
+const SUBSCRIBE_URL = "https://YOUR-PROXY.vercel.app/api/subscribe"
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
