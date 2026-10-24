@@ -94,6 +94,7 @@ If your list uses double opt-in, subscribers must confirm before they're added, 
 | Success message, but no contact in EmailOctopus | Double opt-in is on, or you're looking at a different list |
 | Browser CORS error | `ALLOWED_ORIGIN` doesn't exactly match your site URL, including `https://` |
 | Form does nothing | `SUBSCRIBE_URL` in the component still contains `YOUR-PROXY` |
+| Form looks thin or squashed | Set the form's width to fill and its height to auto on the Framer canvas, then adjust **Field Height** in the property panel. The control is called `fieldHeight` because Framer reserves `height` for the layer's own size |
 
 ## Notes
 
