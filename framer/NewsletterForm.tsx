@@ -158,6 +158,6 @@ addPropertyControls(NewsletterForm, {
     buttonBackground: { type: ControlType.Color, defaultValue: "#f8f9fa" },
     buttonTextColor: { type: ControlType.Color, defaultValue: "#000000" },
     borderRadius: { type: ControlType.String, defaultValue: "12px" },
-    height: { type: ControlType.String, defaultValue: "56px" },
-    font: { type: ControlType.Font, defaultValue: { fontSize: 16 } },
+    height: { type: ControlType.String, defaultValue: "44px" },
+    font: { type: ControlType.Font, defaultValue: { fontSize: 18 } },
 })
