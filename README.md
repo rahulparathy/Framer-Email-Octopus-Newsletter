@@ -102,4 +102,4 @@ If your list uses double opt-in, subscribers must confirm before they're added, 
 
 ## License
 
-Add your preferred license here.
+Released under the [MIT License](LICENSE). You are free to use, modify, and sell it, as long as the copyright notice is kept.
